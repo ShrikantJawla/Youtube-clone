@@ -75,7 +75,7 @@ let appendVideos = (arr) => {
 let getRandomApi = async () => {
 	try {
 		let res = await fetch(
-			`https://youtube.googleapis.com/youtube/v3/search?q=trending&key=${api}&part=snippet&maxResults=40`
+			`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=40&regionCode=US&key=${api}`
 		);
 		let data = await res.json();
 		appendVideos(data.items);
