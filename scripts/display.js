@@ -36,7 +36,7 @@ let displaysVideoData = (d) => {
 };
 displaysVideoData(data);
 
-api = "AIzaSyBLaw-CE0wJRMzzP_pxj3rmjhOgtNlK2yw";
+api = "AIzaSyB_ad5tJYt02K7UW1m6gO2tKjqUMgM4qpA";
 const link = `https://youtube.googleapis.com/youtube/v3/search?q=${channelTitle}&key=${api}&part=snippet&maxResults=15`;
 let fetchData = async (urls) => {
 	let res = await fetch(urls);

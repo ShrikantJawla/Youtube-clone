@@ -2,7 +2,7 @@
 
 let currentData = JSON.parse(localStorage.getItem("home_data")) || [];
 
-const api = "AIzaSyBLaw-CE0wJRMzzP_pxj3rmjhOgtNlK2yw";
+const api = "AIzaSyB_ad5tJYt02K7UW1m6gO2tKjqUMgM4qpA";
 const videoId = `https://youtube.googleapis.com/youtube/v3/videos?id=5aB_J0icrmc&key=${api}`;
 
 //ON searching:----->
