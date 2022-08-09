@@ -1,7 +1,7 @@
 /** @format */
 body {
-	margin: auto;
-	padding: auto;
+	margin: 0px;
+	padding: 0px;
 }
 * {
 	box-sizing: border-box;
@@ -18,7 +18,6 @@ body {
 	align-items: center;
 	padding-right: 45px;
 	padding-left: 30px;
-	/* border: 1px solid red; */
 }
 .left {
 	display: flex;
@@ -37,7 +36,6 @@ body {
 	height: 50px;
 	width: 26px;
 	font-size: 1.5rem;
-	/* border: 1px solid red; */
 }
 .mid {
 	display: flex;
@@ -87,17 +85,24 @@ body {
 	width: 26px;
 	font-size: 1.5rem;
 }
+.mainBody {
+	width: 90%;
+	margin: auto;
+}
 .searchResult {
 	border-top: 0.5px solid gray;
-	width: 90%;
+	width: 98%;
 	margin: auto;
 	margin-top: 40px;
 	padding: 18px 5px;
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(4, 22%);
 	gap: 17px;
+	justify-content: center;
 }
 .video {
+	width: 100%;
+	height: 100%;
 }
 .video:hover {
 	background-color: rgba(238, 236, 236, 0.801);
@@ -105,7 +110,7 @@ body {
 }
 .video img {
 	width: 100%;
-	height: 60%;
+	height: 55%;
 	margin-bottom: 0px;
 }
 .title {
@@ -116,14 +121,14 @@ body {
 .channelName {
 	padding-left: 7px;
 	margin-top: 13px;
-	margin-bottom: 90px;
+	margin-bottom: 40px;
 }
+
 @media all and (max-width: 480px) {
 	.navbar {
 		padding: 14px;
 		padding-right: 4px;
 		padding-left: 4px;
-		/* border: 1px solid red; */
 	}
 	.left {
 		gap: 4px;
