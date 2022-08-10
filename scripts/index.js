@@ -5,6 +5,24 @@ let currentData = JSON.parse(localStorage.getItem("home_data")) || [];
 const api = "AIzaSyB_ad5tJYt02K7UW1m6gO2tKjqUMgM4qpA";
 const videoId = `https://youtube.googleapis.com/youtube/v3/videos?id=5aB_J0icrmc&key=${api}`;
 
+//This code check if user opens page for the first time or press the back button:---->
+
+let getRandomApi = async () => {
+	try {
+		let res = await fetch(
+			`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=40&regionCode=US&key=${api}`
+		);
+		let data = await res.json();
+		appendVideos(data.items);
+	} catch (err) {
+		console.log(err);
+	}
+};
+
+window.onload = function () {
+	getRandomApi();
+};
+
 //ON searching:----->
 
 let getApiData = async () => {
@@ -70,22 +88,43 @@ let appendVideos = (arr) => {
 	});
 };
 
-//This code check if user opens page for the first time or press the back button:---->
-
-let getRandomApi = async () => {
+let getApiOfCategories = async (ur) => {
 	try {
-		let res = await fetch(
-			`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=40&regionCode=US&key=${api}`
-		);
+		let res = await fetch(ur);
 		let data = await res.json();
-		appendVideos(data.items);
+		// console.log(data);
+		return data.items;
 	} catch (err) {
 		console.log(err);
 	}
 };
 
-if (currentData.length !== 0) {
-	appendVideos(currentData);
-} else {
-	getRandomApi();
-}
+let displayByCLickingOnCategory = async (cat) => {
+	let data = await getApiOfCategories(
+		`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=40&q=${cat}&type=video&key=${api}`
+	);
+	appendVideos(data);
+};
+
+let displayCategories = async () => {
+	let arr = await getApiOfCategories(
+		`https://youtube.googleapis.com/youtube/v3/videoCategories?part=snippet&regionCode=IN&US&key=${api}`
+	);
+	// console.log(arr);
+	let box = document.querySelector(".sideBar");
+	box.innerHTML = null;
+	arr.forEach((ele) => {
+		let {
+			snippet: { title, channelId },
+			id,
+		} = ele;
+		let btn = document.createElement("button");
+		btn.classList.add("catBtn");
+		btn.innerText = title;
+		btn.addEventListener("click", () => {
+			displayByCLickingOnCategory(title);
+		});
+		box.append(btn);
+	});
+};
+displayCategories();
