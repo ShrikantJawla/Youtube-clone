@@ -14,7 +14,7 @@ body {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	padding: 18px;
+	padding: 15px;
 	align-items: center;
 	padding-right: 45px;
 	padding-left: 30px;
@@ -90,38 +90,33 @@ body {
 .mainBody {
 	width: 95%;
 	margin: auto;
-	display: grid;
-	grid-template-columns: 89%;
+	display: flex;
+	flex-direction: column;
 	gap: 10px;
-	position: relative;
 }
 .sideBar {
 	/* border: 1px solid red; */
-	display: flex;
-	flex-direction: column;
-	gap: 5px;
-	padding: 0px 13px;
-	left: 1%;
-	top: 22%;
-	width: 15%;
+	background-color: white;
+	padding: 5px;
+	position: sticky;
+	top: 14.9%;
+	width: fit-content;
+	width: 100%;
 	z-index: 3;
-	height: 440px;
-	position: fixed;
-	overflow-y: scroll;
+	height: 60px;
+	white-space: nowrap;
+	overflow-x: scroll;
 }
-.sideBar .catBtn {
-	width: 85%;
+.catBtn {
+	width: fit-content;
 	border: none;
-	padding: 8px;
-	font-size: 14px;
+	padding: 7px 15px;
+	font-size: 13px;
 	background-color: rgb(77, 73, 73);
 	border-radius: 15px;
 	color: white;
-	font-weight: 600;
+	font-weight: 500;
 	cursor: pointer;
-}
-.catBtn:first-child {
-	margin-top: 9px;
 }
 .catBtn:hover {
 	background-color: rgb(94, 91, 91);
@@ -134,8 +129,7 @@ body {
 	display: grid;
 	grid-template-columns: repeat(4, 22%);
 	gap: 17px;
-	/* justify-content: flex-end; */
-	margin-left: 19%;
+	justify-content: center;
 }
 .video {
 	width: 100%;
