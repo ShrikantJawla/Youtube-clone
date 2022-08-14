@@ -6,6 +6,32 @@ body {
 * {
 	box-sizing: border-box;
 }
+body::-webkit-scrollbar {
+	width: 12px;
+}
+body::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+body::-webkit-scrollbar-thumb {
+	background: #888;
+}
+body::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+.sideBar::-webkit-scrollbar {
+	width: 1px;
+}
+.sideBar::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+.sideBar::-webkit-scrollbar-thumb {
+	border-radius: 50px;
+	border: 3px solid white;
+	background: #888;
+}
+.sideBar::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
 .navbar {
 	background-color: white;
 	position: sticky;
